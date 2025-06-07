@@ -35,8 +35,8 @@ class ColorSchemeShowcase extends StatelessWidget {
     'inverseSurface',
     'brightness',
   ];
-  ColorSchemeShowcase({super.key});
 
+  ColorSchemeShowcase({super.key});
   @override
   Widget build(BuildContext context) {
     final colorScheme = context.colorScheme;
@@ -147,9 +147,14 @@ class ColorSchemeShowcasePage extends StatelessWidget {
   }
 }
 
-class TestingPage extends StatelessWidget {
+class TestingPage extends StatefulWidget {
   const TestingPage({super.key});
 
+  @override
+  State<TestingPage> createState() => _TestingPageState();
+}
+
+class _TestingPageState extends State<TestingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,6 +201,16 @@ class TestingPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> handleOnboardingCompletion() async {
+    await getIt<HiveStorage>().set(Constants.IS_SPLASH_SEEN, true);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    handleOnboardingCompletion();
   }
 
   Future<void> newMethod(BuildContext context) async {

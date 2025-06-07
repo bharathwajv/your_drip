@@ -1,0 +1,11 @@
+Language: Dart (flutter widget)
+coding practice :
+ - use .scalablePixel for numbers or sizing-related places
+ eg - 16.scalablePixel
+ - for colors use context.colorScheme.primary , etc (dont use colors directly)
+
+- for text use 
+ context.textTheme.modifiedTextTheme(
+                    context.textTheme.labelLarge,
+                    context.colorScheme.primary,
+                  ),

@@ -728,7 +728,7 @@ packages:
   ui_core:
     dependency: "direct main"
     description:
-      path: "../../ui_core"
+      path: "../ui_core"
       relative: true
     source: path
     version: "0.0.1"

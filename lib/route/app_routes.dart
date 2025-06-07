@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ui_core/components/Extension.dart';
-import 'package:ui_core/components/animations/Loader.dart';
-import 'package:ui_core/components/screens/sheets/CustomBottomSheet.dart';
 import 'package:ui_core/core/base/base_hive.dart';
 import 'package:ui_core/core/base/base_inMemory.dart';
-import 'package:your_drip/components/theme/theme_selector.dart';
 import 'package:your_drip/constant/constants.dart';
 import 'package:your_drip/core/FeatureFlag.dart';
+import 'package:your_drip/features/home/home_screen.dart';
 import 'package:your_drip/route/scaffold/ScaffoldWithNavbar.dart';
 import 'package:your_drip/route/testing_page.dart';
 
@@ -38,7 +34,7 @@ class AppRoutes {
               GoRoute(
                 name: Constants.route_home,
                 path: '/',
-                builder: (context, state) => const Home(),
+                builder: (context, state) => const HomeScreen(),
               ),
             ],
           ),
@@ -83,43 +79,4 @@ class AppRoutes {
       return null;
     },
   );
-}
-
-class Home extends StatefulWidget {
-  const Home({super.key});
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 10.scalablePixel),
-      child: IconButton(
-        icon: Icon(
-          Icons.color_lens_outlined,
-          size: 23.0.scalablePixel,
-          color: context.colorScheme.onPrimary,
-        ),
-        onPressed: () {
-          customBottomSheet(context, const ThemeSelector(), isFloating: true);
-        },
-      ),
-    );
-  }
-
-  Future<void> handleOnboardingCompletion() async {
-    await Loader.runTimeConsumingMethord(context, () async {
-      await getIt<HiveStorage>().set(Constants.IS_SPLASH_SEEN, true);
-      // Simulate some processing time (replace with your actual task)
-      await Future.delayed(500.ms);
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    handleOnboardingCompletion();
-  }
 }
