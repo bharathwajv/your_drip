@@ -4,6 +4,7 @@ import 'package:ui_core/core/base/base_hive.dart';
 import 'package:ui_core/core/base/base_inMemory.dart';
 import 'package:your_drip/constant/constants.dart';
 import 'package:your_drip/core/FeatureFlag.dart';
+import 'package:your_drip/features/Splash/splash_screen.dart';
 import 'package:your_drip/features/home/home_screen.dart';
 import 'package:your_drip/route/scaffold/ScaffoldWithNavbar.dart';
 import 'package:your_drip/route/testing_page.dart';
@@ -58,7 +59,7 @@ class AppRoutes {
         parentNavigatorKey: rootNavigatorKey,
         name: Constants.route_splash,
         path: '/splash',
-        builder: (context, state) => const TestingPage(),
+        builder: (context, state) => const SplashScreen(),
       ),
     ],
     redirect: (BuildContext context, GoRouterState state) async {
