@@ -4,8 +4,8 @@ import 'package:ui_core/core/base/base_hive.dart';
 import 'package:ui_core/core/base/base_inMemory.dart';
 import 'package:your_drip/constant/constants.dart';
 import 'package:your_drip/core/FeatureFlag.dart';
+import 'package:your_drip/features/ImageCrop/test.dart';
 import 'package:your_drip/features/Splash/splash_screen.dart';
-import 'package:your_drip/features/home/home_screen.dart';
 import 'package:your_drip/route/scaffold/ScaffoldWithNavbar.dart';
 import 'package:your_drip/route/testing_page.dart';
 
@@ -35,7 +35,7 @@ class AppRoutes {
               GoRoute(
                 name: Constants.route_home,
                 path: '/',
-                builder: (context, state) => const HomeScreen(),
+                builder: (context, state) => const ImagePicker(),
               ),
             ],
           ),
@@ -60,6 +60,11 @@ class AppRoutes {
         name: Constants.route_splash,
         path: '/splash',
         builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        name: "imagepicker",
+        path: '/imagepicker',
+        builder: (context, state) => const ImagePicker(),
       ),
     ],
     redirect: (BuildContext context, GoRouterState state) async {

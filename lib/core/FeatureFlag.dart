@@ -20,7 +20,7 @@ class StaticFeatureFlagService implements IFeatureFlagService {
     const String jsonString = """{
                               "appBuildVersion": "1.0.0",
                               "features": {
-                                "scanQRCode": true,
+                                "scanQRCode": false,
                                 "askDeliveryTypeOnAppOpen": false,
                                 "showSplashScreenForNewUser": true,
                                 "MenuFAB": true

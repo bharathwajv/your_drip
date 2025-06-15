@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "your_drip",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "your_drip (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "your_drip (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "material_shapes",
+            "cwd": "material_shapes",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "material_shapes (profile mode)",
+            "cwd": "material_shapes",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "material_shapes (release mode)",
+            "cwd": "material_shapes",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
