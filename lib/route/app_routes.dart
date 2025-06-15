@@ -5,6 +5,7 @@ import 'package:ui_core/core/base/base_inMemory.dart';
 import 'package:your_drip/constant/constants.dart';
 import 'package:your_drip/core/FeatureFlag.dart';
 import 'package:your_drip/features/ImageCrop/test.dart';
+import 'package:your_drip/features/ImagePreview/image_preview_page.dart';
 import 'package:your_drip/features/Splash/splash_screen.dart';
 import 'package:your_drip/route/scaffold/ScaffoldWithNavbar.dart';
 import 'package:your_drip/route/testing_page.dart';
@@ -66,6 +67,18 @@ class AppRoutes {
         path: '/imagepicker',
         builder: (context, state) => const ImagePicker(),
       ),
+      GoRoute(
+        parentNavigatorKey: rootNavigatorKey,
+        name: "image_preview",
+        path: '/image-preview',
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>?;
+          return ImagePreviewPage(
+            imagePath: extra?['imagePath'] as String,
+            title: extra?['title'] as String? ?? 'Image Preview',
+          );
+        },
+      ),
     ],
     redirect: (BuildContext context, GoRouterState state) async {
       HiveStorage hive = getIt<HiveStorage>();
@@ -75,7 +88,7 @@ class AppRoutes {
 
       if (!isSplashSeen &&
           featureFlagService.isFeatureEnabled('showSplashScreenForNewUser')) {
-        return '/splash';
+        // return '/splash';
       } else {
         // bool? isLoggedIn = hive.get(Constants.IS_LOGGED_IN) ?? false;
         // if (!isLoggedIn) {
