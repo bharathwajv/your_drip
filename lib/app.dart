@@ -58,6 +58,7 @@ class _AppState extends State<App> {
     // Listen to media sharing coming from outside the app while the app is in the memory.
     _intentSub = ReceiveSharingIntent.instance.getMediaStream().listen(
       (value) {
+        print("reciveD");
         setState(() {
           _sharedFiles.clear();
           _sharedFiles.addAll(value);
